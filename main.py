@@ -1,9 +1,14 @@
 import zipfile
 import json
 import requests
+import yaml
 
-inipassword = ''
-EldenRingPath = '/home/kaleb/coding/python/autoupdate/eldenRing/game'
+with open('config.yaml') as f:
+    config = yaml.safe_load(f)
+inipassword = config['VARIABLES']['inipassword']
+EldenRingPath = config['VARIABLES']['EldenRingPath']
+
+
 filename = f'eldenring.zip'
 git_repo = 'https://api.github.com/repos/LukeYui/EldenRingSeamlessCoopRelease/releases/latest'
 url = git_repo
@@ -26,7 +31,10 @@ def cooppassword(password, path):
 
 
 response=requests.get(git_repo)
-print(response)
+# print(response)
+print(EldenRingPath)
+print(inipassword)
+
 if response.status_code == 200:
   # data=json.loads(response.text)  
   data = response.json()
