@@ -8,7 +8,6 @@ with open('config.yaml') as f:
 inipassword = config['VARIABLES']['inipassword']
 EldenRingPath = config['VARIABLES']['EldenRingPath']
 
-
 filename = f'eldenring.zip'
 git_repo = 'https://api.github.com/repos/LukeYui/EldenRingSeamlessCoopRelease/releases/latest'
 url = git_repo
@@ -31,16 +30,12 @@ def cooppassword(password, path):
 
 
 response=requests.get(git_repo)
-# print(response)
 print(EldenRingPath)
 print(inipassword)
 
 if response.status_code == 200:
-  # data=json.loads(response.text)  
   data = response.json()
-  # print(data)
   url = data['assets'][0]['browser_download_url']
-  print(url)
   response = requests.get(url)
   with open(f'{EldenRingPath}/{filename}', 'wb') as f:
     f.write(response.content)
