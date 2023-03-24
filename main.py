@@ -18,7 +18,7 @@ def extract(filename, path):
     zip.extractall(path)
 
 def cooppassword(password, path):
-  '''Opens seamlesscoopsettings.ini file and changes coop password'''
+  '''Opens seamlesscoopsettings.yaml file and changes coop password'''
   with open(f'{path}/SeamlessCoop/seamlesscoopsettings.ini', 'r+') as f:
     lines = f.readlines()
     for i, line in enumerate(lines):
