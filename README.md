@@ -5,6 +5,6 @@ Go into config.yaml and change the cooppassword to whatever your want it to be, 
 Make sure your in the ELDENRING\game directory or it will not work
 Here's another example:
 
-  EldenRingPath: E:\SteamLibrary\steamapps\common\ELDEN RING\Game
+    EldenRingPath: E:\SteamLibrary\steamapps\common\ELDEN RING\Game
 
 If it doesnt look like this it will not work
